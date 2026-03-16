@@ -66,7 +66,7 @@ const DigitalTransformSection = () => {
             </div>
 
             {/* Process flow */}
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex items-stretch justify-between gap-2">
               {["Analiza", "Strategija", "Implementacija", "Optimizacija"].map((step, i) => (
                 <motion.div
                   key={step}
@@ -75,15 +75,12 @@ const DigitalTransformSection = () => {
                   transition={{ delay: 0.8 + i * 0.15 }}
                   className="flex-1"
                 >
-                  <div className="bg-secondary/50 border border-border rounded-lg p-3 text-center">
+                  <div className="bg-secondary/50 border border-border rounded-lg p-3 text-center h-full flex flex-col items-center justify-center">
                     <div className="w-6 h-6 rounded-full bg-primary/20 border border-primary/30 mx-auto mb-2 flex items-center justify-center">
                       <span className="text-xs text-primary font-bold">{i + 1}</span>
                     </div>
                     <span className="text-xs text-muted-foreground">{step}</span>
                   </div>
-                  {i < 3 && (
-                    <div className="hidden md:block h-px bg-primary/20 w-full mt-5" />
-                  )}
                 </motion.div>
               ))}
             </div>
