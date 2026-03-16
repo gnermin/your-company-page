@@ -73,7 +73,7 @@ const IoTSection = () => {
             <div className="flex items-center justify-between mb-6">
               <h3 className="font-heading font-semibold text-foreground text-sm">Live Telemetry</h3>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span className="text-xs text-muted-foreground">Online</span>
               </div>
             </div>
