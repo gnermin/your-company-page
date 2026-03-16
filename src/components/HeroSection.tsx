@@ -49,7 +49,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              onClick={() => scrollTo("#ai-agents")}
+              onClick={() => scrollTo("#digital")}
               className="bg-primary text-primary-foreground hover:bg-primary/80 text-base px-8 py-6"
             >
               Istražite rješenja
