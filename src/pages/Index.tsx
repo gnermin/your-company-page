@@ -1,9 +1,8 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import AIAgentsSection from "@/components/AIAgentsSection";
+import DigitalTransformSection from "@/components/DigitalTransformSection";
 import IoTSection from "@/components/IoTSection";
 import DroneSection from "@/components/DroneSection";
-import DigitalTransformSection from "@/components/DigitalTransformSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -12,10 +11,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <AIAgentsSection />
+      <DigitalTransformSection />
       <IoTSection />
       <DroneSection />
-      <DigitalTransformSection />
       <ContactSection />
       <Footer />
     </div>
