@@ -178,7 +178,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Lokacija</div>
-                    <div className="text-foreground">Sarajevo, Bosna i Hercegovina</div>
+                    <div className="text-foreground">Travnik, Bosna i Hercegovina</div>
                   </div>
                 </div>
               </div>
