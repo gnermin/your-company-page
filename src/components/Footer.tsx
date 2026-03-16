@@ -49,7 +49,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 AI TechSolutions. Sva prava zadržana.
+            © 2026 AI TechSolutions. Sva prava zadržana.
           </p>
           <div className="flex gap-4">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">LinkedIn</a>
