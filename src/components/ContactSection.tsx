@@ -160,7 +160,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Email</div>
-                    <div className="text-foreground">info@aitechsolutions.com</div>
+                    <div className="text-foreground">nermin.goran@gmail.com</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
