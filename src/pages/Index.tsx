@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import DigitalTransformSection from "@/components/DigitalTransformSection";
 import IoTSection from "@/components/IoTSection";
 import DroneSection from "@/components/DroneSection";
+import AIAgentsSection from "@/components/AIAgentsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -14,6 +15,7 @@ const Index = () => {
       <DigitalTransformSection />
       <IoTSection />
       <DroneSection />
+      <AIAgentsSection />
       <ContactSection />
       <Footer />
     </div>
