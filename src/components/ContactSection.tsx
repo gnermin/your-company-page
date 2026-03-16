@@ -169,7 +169,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Telefon</div>
-                    <div className="text-foreground">+387 61 222 5568</div>
+                    <div className="text-foreground">+387 62 225 568</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -178,7 +178,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Lokacija</div>
-                    <div className="text-foreground">Sarajevo, Bosna i Hercegovina</div>
+                    <div className="text-foreground">Travnik, Bosna i Hercegovina</div>
                   </div>
                 </div>
               </div>
