@@ -160,7 +160,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Email</div>
-                    <div className="text-foreground">info@aitechsolutions.com</div>
+                    <div className="text-foreground">nermin.goran@gmail.com</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -169,7 +169,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Telefon</div>
-                    <div className="text-foreground">+387 33 123 456</div>
+                    <div className="text-foreground">+387 61 222 5568</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
