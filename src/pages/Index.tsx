@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import DigitalTransformSection from "@/components/DigitalTransformSection";
+import TelecomSection from "@/components/TelecomSection";
 import IoTSection from "@/components/IoTSection";
 import DroneSection from "@/components/DroneSection";
 import AIAgentsSection from "@/components/AIAgentsSection";
@@ -13,6 +14,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <DigitalTransformSection />
+      <TelecomSection />
       <IoTSection />
       <DroneSection />
       <AIAgentsSection />

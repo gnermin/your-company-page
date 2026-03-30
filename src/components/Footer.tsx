@@ -21,6 +21,7 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-foreground mb-4 text-sm">Usluge</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#ai-agents" className="hover:text-primary transition-colors">AI Agenti</a></li>
+              <li><a href="#telecom" className="hover:text-primary transition-colors">TK Rješenja</a></li>
               <li><a href="#iot" className="hover:text-primary transition-colors">IoT Sistemi</a></li>
               <li><a href="#drones" className="hover:text-primary transition-colors">Dron Tehnologije</a></li>
               <li><a href="#digital" className="hover:text-primary transition-colors">Digitalna Transformacija</a></li>
