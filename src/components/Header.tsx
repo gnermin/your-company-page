@@ -39,7 +39,7 @@ const Header = () => {
             <span className="text-primary-foreground font-heading font-bold text-sm">AI</span>
           </div>
           <span className="font-heading font-bold text-lg text-foreground">
-            AI <span className="text-primary">TechSolutions</span>
+            NG <span className="text-primary">Consulting</span>
           </span>
         </a>
 
