@@ -33,7 +33,7 @@ const HeroSection = () => {
             transition={{ delay: 0.2 }}
             className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-6"
           >
-            Inovativna AI & IoT Rješenja
+            Inovativna AI, SaaS & IoT Rješenja
           </motion.div>
 
           <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight">
