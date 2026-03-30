@@ -6,10 +6,10 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-heading font-bold text-sm">AI</span>
+                <span className="text-primary-foreground font-heading font-bold text-sm">NG</span>
               </div>
               <span className="font-heading font-bold text-foreground">
-                AI <span className="text-primary">TechSolutions</span>
+                NG <span className="text-primary">Consulting</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -49,7 +49,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2026 AI TechSolutions. Sva prava zadržana.
+            © 2026 NG Consulting. Sva prava zadržana.
           </p>
           <div className="flex gap-4">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">LinkedIn</a>

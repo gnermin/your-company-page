@@ -10,10 +10,10 @@ const features = [
 ];
 
 const stats = [
-  { label: "Uređaji", value: 2847, icon: Cpu },
-  { label: "Gateway", value: 156, icon: Radio },
-  { label: "Senzori", value: 12453, icon: Wifi },
-  { label: "Lokacije", value: 89, icon: MapPin },
+  { label: "Uređaji", value: 50, icon: Cpu },
+  { label: "Gateway", value: 25, icon: Radio },
+  { label: "Senzori", value: 100, icon: Wifi },
+  { label: "Lokacije", value: 10, icon: MapPin },
 ];
 
 const AnimatedCounter = ({ target, inView }: { target: number; inView: boolean }) => {
