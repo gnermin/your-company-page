@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Početna", href: "#hero" },
   { label: "Digitalna Transformacija", href: "#digital" },
+  { label: "TK Rješenja", href: "#telecom" },
   { label: "IoT Sistemi", href: "#iot" },
   { label: "Dron Tehnologije", href: "#drones" },
   { label: "AI Agenti", href: "#ai-agents" },
