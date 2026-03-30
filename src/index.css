@@ -70,7 +70,7 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(240 15% 6%);
+  background: hsl(220 18% 12%);
 }
 ::-webkit-scrollbar-thumb {
   background: hsl(240 12% 20%);
