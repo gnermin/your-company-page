@@ -5,16 +5,16 @@ import { Phone, Network, Radio, Eye, Wifi } from "lucide-react";
 const features = [
   { icon: Radio, title: "Radio mreže", desc: "Konsalting i implementacija LoRa, LoRaWAN, NB-IoT i DMR radio komunikacijskih mreža" },
   { icon: Network, title: "FTTH Mreže", desc: "Projektovanje i gradnja fiber-to-the-home optičkih mreža za brzi pristup internetu" },
-  { icon: Eye, title: "Nadzor mreže", desc: "24/7 monitoring i upravljanje telekomunikacijskom infrastrukturom u realnom vremenu" },
+  { icon: Eye, title: "Nadzor izgradnje", desc: "Stručni nadzor nad izgradnjom telekomunikacijske infrastrukture i optičkih mreža" },
   { icon: Phone, title: "VoIP Sistemi", desc: "Napredni VoIP sistemi sa kristalno čistim zvukom i niskim latencijama" },
   { icon: Wifi, title: "Networking", desc: "Dizajn i implementacija skalabilnih mrežnih rješenja za vaše poslovanje" },
 ];
 
 const stats = [
-  { label: "Aktivnih linija", value: "500+" },
-  { label: "Uptime", value: "99.9%" },
-  { label: "Lokacija", value: "30+" },
-  { label: "Partnera", value: "15+" },
+  { label: "Rješenja", value: "5+" },
+  { label: "Uptime", value: "90%" },
+  { label: "Nadzor", value: "50+" },
+  { label: "Lokacija", value: "100+" },
 ];
 
 const TelecomSection = () => {
