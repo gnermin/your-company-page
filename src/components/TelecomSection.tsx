@@ -1,14 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, Radio, Network, Shield, Server, Wifi } from "lucide-react";
+import { Phone, Network, Radio, Eye, Wifi } from "lucide-react";
 
 const features = [
+  { icon: Radio, title: "Radio mreže", desc: "Konsalting i implementacija LoRa, LoRaWAN, NB-IoT i DMR radio komunikacijskih mreža" },
+  { icon: Network, title: "FTTH Mreže", desc: "Projektovanje i gradnja fiber-to-the-home optičkih mreža za brzi pristup internetu" },
+  { icon: Eye, title: "Nadzor mreže", desc: "24/7 monitoring i upravljanje telekomunikacijskom infrastrukturom u realnom vremenu" },
   { icon: Phone, title: "VoIP Sistemi", desc: "Napredni VoIP sistemi sa kristalno čistim zvukom i niskim latencijama" },
-  { icon: Network, title: "Mrežna infrastruktura", desc: "Dizajn i implementacija skalabilnih mrežnih rješenja za vaše poslovanje" },
-  { icon: Radio, title: "Bežične komunikacije", desc: "Wi-Fi, LTE i 5G rješenja za potpunu pokrivenost i povezanost" },
-  { icon: Shield, title: "Sigurnost mreže", desc: "Firewall, VPN i napredna zaštita komunikacijske infrastrukture" },
-  { icon: Server, title: "Unified Communications", desc: "Objedinjene komunikacije — glas, video, poruke u jednoj platformi" },
-  { icon: Wifi, title: "SD-WAN Rješenja", desc: "Softverski definisane mreže za optimizaciju performansi i troškova" },
+  { icon: Wifi, title: "Networking", desc: "Dizajn i implementacija skalabilnih mrežnih rješenja za vaše poslovanje" },
 ];
 
 const stats = [
