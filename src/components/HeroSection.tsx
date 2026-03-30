@@ -42,7 +42,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            Transformišite vaše poslovanje sa najnovijim AI agentima, IoT sistemima i dron tehnologijama.
+            Transformišite vaše poslovanje sa najnovijim AI agentima, SaaS aplikacijama, IoT sistemima i dron tehnologijama.
             Naša rješenja donose mjerljive rezultate.
           </p>
 
