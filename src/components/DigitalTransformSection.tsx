@@ -17,7 +17,7 @@ const pillars = [
   { label: "Integracija", value: "98%" },
   { label: "KPI Fokus", value: "15+" },
   { label: "AI Modeli", value: "20+" },
-  { label: "Timovi", value: "50+" },
+  { label: "Timovi", value: "10+" },
 ];
 
 const DigitalTransformSection = () => {
