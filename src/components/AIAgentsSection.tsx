@@ -66,11 +66,11 @@ const AIAgentsSection = () => {
             ))}
             {/* Connection lines (SVG) */}
             <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-              <line x1="25%" y1="28%" x2="65%" y2="18%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
-              <line x1="75%" y1="20%" x2="80%" y2="48%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
-              <line x1="25%" y1="35%" x2="22%" y2="62%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
-              <line x1="30%" y1="68%" x2="55%" y2="75%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
-              <line x1="70%" y1="55%" x2="60%" y2="72%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
+              <line x1="20%" y1="25%" x2="65%" y2="15%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
+              <line x1="72%" y1="18%" x2="80%" y2="48%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
+              <line x1="20%" y1="30%" x2="20%" y2="63%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
+              <line x1="28%" y1="65%" x2="53%" y2="73%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
+              <line x1="80%" y1="52%" x2="58%" y2="73%" stroke="hsl(187 100% 50% / 0.15)" strokeWidth="1" />
             </svg>
           </motion.div>
 
