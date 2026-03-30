@@ -5,7 +5,7 @@ import { Bot, Shield, Target } from "lucide-react";
 const features = [
   { icon: Bot, title: "AI Automatizacija", desc: "Napredni AI agenti koji automatiziraju kompleksne poslovne procese" },
   { icon: Shield, title: "Sigurna Integracija", desc: "Enterprise-grade sigurnost sa end-to-end enkripcijom podataka" },
-  { icon: Target, title: "Precizni Rezultati", desc: "Mjerljivi rezultati sa 95.99% preciznošću u analizi podataka" },
+  { icon: Target, title: "Izrada SaaS Aplikacija", desc: "Razvoj skalabilnih cloud aplikacija prilagođenih vašim poslovnim potrebama" },
 ];
 
 const HeroSection = () => {
