@@ -1,24 +1,22 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Camera, Map, Eye, Navigation } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 
-const features = [
-  { icon: Eye, title: "Aerial inspekcija", desc: "Autonomna inspekcija infrastrukture sa AI detektovanjem oštećenja i anomalija" },
-  { icon: Camera, title: "AI prepoznavanje", desc: "Computer vision za automatsko prepoznavanje objekata i analizu terena" },
-  { icon: Map, title: "4K video streaming", desc: "Live streaming u 4K rezoluciji sa real-time AI anotacijama i overlay-ima" },
-  { icon: Navigation, title: "Autonomno mapiranje", desc: "3D mapiranje terena sa centimetarskom preciznošću koristeći LiDAR tehnologiju" },
-];
-
-const missionControls = [
-  { label: "4K Capture", status: "active" },
-  { label: "Mapping", status: "active" },
-  { label: "Inspection", status: "standby" },
-  { label: "Autonomy", status: "active" },
-];
+const featureIcons = [Eye, Camera, Map, Navigation];
 
 const DroneSection = () => {
+  const { t } = useLang();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const features = t.drones.f.map((f, i) => ({ icon: featureIcons[i], title: f.t, desc: f.d }));
+  const missionControls = [
+    { label: t.drones.controls.capture, status: "active" },
+    { label: t.drones.controls.mapping, status: "active" },
+    { label: t.drones.controls.inspection, status: "standby" },
+    { label: t.drones.controls.autonomy, status: "active" },
+  ];
 
   return (
     <section id="drones" className="py-24 relative" ref={ref}>
@@ -30,13 +28,13 @@ const DroneSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Dron Tehnologije
+            {t.drones.badge}
           </span>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Napredne <span className="gradient-text">Dron Operacije</span>
+            {t.drones.title1} <span className="gradient-text">{t.drones.title2}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Autonomni dronovi sa AI navigacijom za inspekciju, mapiranje i analizu terena
+            {t.drones.desc}
           </p>
         </motion.div>
 
@@ -49,10 +47,10 @@ const DroneSection = () => {
             className="bg-card/30 rounded-2xl border border-border p-6"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="font-heading font-semibold text-foreground text-sm">Mission Control</h3>
+              <h3 className="font-heading font-semibold text-foreground text-sm">{t.drones.mission}</h3>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
-                <span className="text-xs text-primary">ACTIVE</span>
+                <span className="text-xs text-primary">{t.drones.active}</span>
               </div>
             </div>
 
