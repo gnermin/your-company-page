@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Bot, Shield, Target } from "lucide-react";
-
-const features = [
-  { icon: Bot, title: "AI Automatizacija", desc: "Napredni AI agenti koji automatiziraju kompleksne poslovne procese" },
-  { icon: Shield, title: "Sigurna Integracija", desc: "Enterprise-grade sigurnost sa end-to-end enkripcijom podataka" },
-  { icon: Target, title: "Izrada SaaS Aplikacija", desc: "Razvoj skalabilnih cloud aplikacija prilagođenih vašim poslovnim potrebama" },
-];
+import { useLang } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLang();
+  const features = [
+    { icon: Bot, title: t.hero.f1Title, desc: t.hero.f1Desc },
+    { icon: Shield, title: t.hero.f2Title, desc: t.hero.f2Desc },
+    { icon: Target, title: t.hero.f3Title, desc: t.hero.f3Desc },
+  ];
+
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -33,17 +35,16 @@ const HeroSection = () => {
             transition={{ delay: 0.2 }}
             className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-6"
           >
-            Inovativna AI, SaaS & IoT Rješenja
+            {t.hero.badge}
           </motion.div>
 
           <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="gradient-text cyan-glow">Budućnost</span>{" "}
-            <span className="text-foreground">je ovdje</span>
+            <span className="gradient-text cyan-glow">{t.hero.title1}</span>{" "}
+            <span className="text-foreground">{t.hero.title2}</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            Transformišite vaše poslovanje sa najnovijim AI agentima, SaaS aplikacijama, IoT sistemima i dron tehnologijama.
-            Naša rješenja donose mjerljive rezultate.
+            {t.hero.desc}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -52,7 +53,7 @@ const HeroSection = () => {
               onClick={() => scrollTo("#digital")}
               className="bg-primary text-primary-foreground hover:bg-primary/80 text-base px-8 py-6"
             >
-              Istražite rješenja
+              {t.hero.ctaPrimary}
             </Button>
             <Button
               size="lg"
@@ -60,7 +61,7 @@ const HeroSection = () => {
               onClick={() => scrollTo("#contact")}
               className="border-primary/30 text-primary hover:bg-primary/10 text-base px-8 py-6"
             >
-              Rezerviši demo
+              {t.hero.ctaSecondary}
             </Button>
           </div>
         </motion.div>
