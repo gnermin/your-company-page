@@ -1,20 +1,23 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { label: "Početna", href: "#hero" },
-  { label: "Digitalna Transformacija", href: "#digital" },
-  { label: "TK Rješenja", href: "#telecom" },
-  { label: "IoT Sistemi", href: "#iot" },
-  { label: "Dron Tehnologije", href: "#drones" },
-  { label: "AI Agenti", href: "#ai-agents" },
-  { label: "Kontakt", href: "#contact" },
-];
+import { useLang } from "@/i18n/LanguageContext";
+import LanguageToggle from "./LanguageToggle";
 
 const Header = () => {
+  const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { label: t.nav.home, href: "#hero" },
+    { label: t.nav.digital, href: "#digital" },
+    { label: t.nav.telecom, href: "#telecom" },
+    { label: t.nav.iot, href: "#iot" },
+    { label: t.nav.drones, href: "#drones" },
+    { label: t.nav.ai, href: "#ai-agents" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -57,20 +60,27 @@ const Header = () => {
           ))}
         </nav>
 
-        <Button
-          onClick={() => scrollTo("#contact")}
-          className="hidden lg:inline-flex bg-primary text-primary-foreground hover:bg-primary/80"
-        >
-          Kontaktiraj nas
-        </Button>
+        <div className="hidden lg:flex items-center gap-3">
+          <LanguageToggle />
+          <Button
+            onClick={() => scrollTo("#contact")}
+            className="bg-primary text-primary-foreground hover:bg-primary/80"
+          >
+            {t.nav.cta}
+          </Button>
+        </div>
 
         {/* Mobile toggle */}
-        <button
-          className="lg:hidden text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+          <LanguageToggle />
+          <button
+            className="text-foreground"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile nav */}
@@ -90,7 +100,7 @@ const Header = () => {
               onClick={() => scrollTo("#contact")}
               className="mt-2 bg-primary text-primary-foreground"
             >
-              Kontaktiraj nas
+              {t.nav.cta}
             </Button>
           </nav>
         </div>
