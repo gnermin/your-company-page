@@ -2,13 +2,9 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Search, MessageSquare, Zap, Lock } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 
-const features = [
-  { icon: Search, title: "Inteligentno pretraživanje", desc: "RAG arhitektura za precizno pronalaženje informacija iz vaših dokumenata i baza podataka" },
-  { icon: MessageSquare, title: "Kontekstualni odgovori", desc: "AI agenti koji razumiju kontekst i pružaju relevantne, tačne odgovore" },
-  { icon: Zap, title: "Učenje u realnom vremenu", desc: "Kontinuirano poboljšanje kroz feedback loop i adaptivno učenje" },
-  { icon: Lock, title: "Sigurna integracija", desc: "Enterprise-grade sigurnost sa potpunom kontrolom nad vašim podacima" },
-];
+const featureIcons = [Search, MessageSquare, Zap, Lock];
 
 const ragNodes = [
   { label: "Retrieval Flow", x: "10%", y: "20%", delay: 0 },
@@ -19,8 +15,11 @@ const ragNodes = [
 ];
 
 const AIAgentsSection = () => {
+  const { t } = useLang();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const features = t.ai.f.map((f, i) => ({ icon: featureIcons[i], title: f.t, desc: f.d }));
 
   return (
     <section id="ai-agents" className="py-24 relative" ref={ref}>
@@ -32,13 +31,13 @@ const AIAgentsSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            AI Agenti
+            {t.ai.badge}
           </span>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Inteligentni <span className="gradient-text">RAG Agenti</span>
+            {t.ai.title1} <span className="gradient-text">{t.ai.title2}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Naši AI agenti koriste najnoviju RAG arhitekturu za precizno razumijevanje i obradu vaših podataka
+            {t.ai.desc}
           </p>
         </motion.div>
 
