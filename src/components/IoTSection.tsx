@@ -1,20 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Wifi, Radio, Cpu, MapPin } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 
-const features = [
-  { icon: Cpu, title: "Pametni senzori", desc: "Napredni senzori sa AI edge procesiranjem za brzu analizu podataka na licu mjesta" },
-  { icon: Radio, title: "Real-time monitoring", desc: "24/7 praćenje svih IoT uređaja sa instant notifikacijama i alertima" },
-  { icon: Wifi, title: "Cloud integracija", desc: "Besprijekorna integracija sa svim cloud platformama i postojećim sistemima" },
-  { icon: MapPin, title: "Automatizacija procesa", desc: "Automatsko upravljanje procesima na osnovu podataka sa senzora u realnom vremenu" },
-];
-
-const stats = [
-  { label: "Uređaji", value: 50, icon: Cpu },
-  { label: "Gateway", value: 25, icon: Radio },
-  { label: "Senzori", value: 100, icon: Wifi },
-  { label: "Lokacije", value: 10, icon: MapPin },
-];
+const featureIcons = [Cpu, Radio, Wifi, MapPin];
 
 const AnimatedCounter = ({ target, inView }: { target: number; inView: boolean }) => {
   const [count, setCount] = useState(0);
@@ -38,8 +27,17 @@ const AnimatedCounter = ({ target, inView }: { target: number; inView: boolean }
 };
 
 const IoTSection = () => {
+  const { t } = useLang();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const features = t.iot.f.map((f, i) => ({ icon: featureIcons[i], title: f.t, desc: f.d }));
+  const stats = [
+    { label: t.iot.stats.devices, value: 50, icon: Cpu },
+    { label: t.iot.stats.gateway, value: 25, icon: Radio },
+    { label: t.iot.stats.sensors, value: 100, icon: Wifi },
+    { label: t.iot.stats.locations, value: 10, icon: MapPin },
+  ];
 
   return (
     <section id="iot" className="py-24 relative" ref={ref}>
@@ -52,13 +50,13 @@ const IoTSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            IoT Sistemi
+            {t.iot.badge}
           </span>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Pametni <span className="gradient-text">IoT Ekosistem</span>
+            {t.iot.title1} <span className="gradient-text">{t.iot.title2}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Kompletno IoT rješenje od senzora do cloud analitike sa real-time monitoringom
+            {t.iot.desc}
           </p>
         </motion.div>
 
@@ -71,10 +69,10 @@ const IoTSection = () => {
             className="bg-card/30 rounded-2xl border border-border p-6"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="font-heading font-semibold text-foreground text-sm">Live Telemetry</h3>
+              <h3 className="font-heading font-semibold text-foreground text-sm">{t.iot.live}</h3>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs text-muted-foreground">Online</span>
+                <span className="text-xs text-muted-foreground">{t.iot.online}</span>
               </div>
             </div>
 
@@ -100,9 +98,9 @@ const IoTSection = () => {
             {/* Signal bars */}
             <div className="space-y-3">
               {[
-                { label: "Signal", value: 94 },
-                { label: "Latency", value: 12, suffix: "ms" },
-                { label: "Sync", value: 99.8, suffix: "%" },
+                { label: t.iot.bars.signal, value: 94 },
+                { label: t.iot.bars.latency, value: 12, suffix: "ms" },
+                { label: t.iot.bars.sync, value: 99.8, suffix: "%" },
               ].map((bar) => (
                 <div key={bar.label} className="flex items-center gap-3">
                   <span className="text-xs text-muted-foreground w-16">{bar.label}</span>
