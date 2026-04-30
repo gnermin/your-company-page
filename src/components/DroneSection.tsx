@@ -59,43 +59,69 @@ const DroneSection = () => {
             {/* Drone visualization */}
             <div className="relative h-48 bg-secondary/30 rounded-xl border border-border mb-6 overflow-hidden">
               <div className="absolute inset-0 grid-pattern opacity-20" />
-              {/* Flight path */}
-              <svg className="absolute inset-0 w-full h-full">
+              <svg
+                viewBox="0 0 300 200"
+                preserveAspectRatio="xMidYMid meet"
+                className="absolute inset-0 w-full h-full"
+              >
+                <defs>
+                  <path
+                    id="droneFlightPath"
+                    d="M 30 160 Q 90 30, 160 100 T 280 40"
+                    fill="none"
+                  />
+                </defs>
+
+                {/* Scan zones */}
+                <motion.rect
+                  x="55" y="40" width="55" height="50" rx="6"
+                  fill="none" stroke="hsl(187 100% 50% / 0.25)" strokeWidth="1"
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ delay: 1.2 }}
+                />
+                <motion.rect
+                  x="190" y="110" width="70" height="45" rx="6"
+                  fill="none" stroke="hsl(187 100% 50% / 0.25)" strokeWidth="1"
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ delay: 1.4 }}
+                />
+
+                {/* Trajectory (dashed) */}
                 <motion.path
-                  d="M 30 140 Q 80 40, 150 80 T 280 50"
+                  d="M 30 160 Q 90 30, 160 100 T 280 40"
                   stroke="hsl(187 100% 50% / 0.4)"
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                   fill="none"
-                  strokeDasharray="8 4"
+                  strokeDasharray="6 4"
                   initial={{ pathLength: 0 }}
                   animate={isInView ? { pathLength: 1 } : {}}
-                  transition={{ delay: 0.5, duration: 2 }}
+                  transition={{ delay: 0.4, duration: 1.5 }}
                 />
+
+                {/* Waypoints */}
+                <circle cx="30" cy="160" r="3" fill="hsl(187 100% 50% / 0.6)" />
+                <circle cx="280" cy="40" r="3" fill="hsl(187 100% 50% / 0.6)" />
+
+                {/* Pulsing glow following the path */}
+                <circle r="6" fill="hsl(187 100% 50% / 0.25)">
+                  <animate attributeName="r" values="5;12;5" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite" />
+                  <animateMotion dur="8s" repeatCount="indefinite" begin="2s">
+                    <mpath href="#droneFlightPath" />
+                  </animateMotion>
+                </circle>
+
+                {/* Drone marker following the path */}
+                <g>
+                  <circle r="5" fill="hsl(187 100% 50% / 0.2)" stroke="hsl(187 100% 50%)" strokeWidth="1.5" />
+                  <circle r="1.5" fill="hsl(187 100% 50%)" />
+                  <animateMotion dur="8s" repeatCount="indefinite" rotate="auto" begin="2s">
+                    <mpath href="#droneFlightPath" />
+                  </animateMotion>
+                </g>
               </svg>
-              {/* Drone icon */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ delay: 1 }}
-                className="absolute top-1/3 left-1/2 -translate-x-1/2"
-              >
-                <div className="w-6 h-6 rounded-full bg-primary/20 border border-primary flex items-center justify-center animate-float">
-                  <Navigation className="w-3 h-3 text-primary" />
-                </div>
-              </motion.div>
-              {/* Scan areas */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ delay: 1.2 }}
-                className="absolute top-1/4 left-1/4 w-16 h-16 border border-primary/20 rounded-lg"
-              />
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ delay: 1.4 }}
-                className="absolute bottom-1/4 right-1/4 w-20 h-12 border border-primary/20 rounded-lg"
-              />
             </div>
 
             {/* Control modules */}
