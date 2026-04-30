@@ -104,11 +104,18 @@ const DroneSection = () => {
                 <circle cx="30" cy="160" r="3" fill="hsl(187 100% 50% / 0.6)" />
                 <circle cx="280" cy="40" r="3" fill="hsl(187 100% 50% / 0.6)" />
 
-                {/* Pulsing glow following the path */}
+                {/* Pulsing glow following the path (with capture pauses) */}
                 <circle r="6" fill="hsl(187 100% 50% / 0.25)">
-                  <animate attributeName="r" values="5;12;5" dur="2s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite" />
-                  <animateMotion dur="8s" repeatCount="indefinite" begin="2s">
+                  <animate attributeName="r" values="5;12;5" dur="1.2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.6;0;0.6" dur="1.2s" repeatCount="indefinite" />
+                  <animateMotion
+                    dur="10s"
+                    repeatCount="indefinite"
+                    begin="2s"
+                    keyTimes="0; 0.25; 0.45; 0.65; 0.85; 1"
+                    keyPoints="0; 0.244; 0.345; 0.616; 0.765; 1"
+                    calcMode="linear"
+                  >
                     <mpath href="#droneFlightPath" />
                   </animateMotion>
                 </circle>
@@ -117,9 +124,43 @@ const DroneSection = () => {
                 <g>
                   <circle r="5" fill="hsl(187 100% 50% / 0.2)" stroke="hsl(187 100% 50%)" strokeWidth="1.5" />
                   <circle r="1.5" fill="hsl(187 100% 50%)" />
-                  <animateMotion dur="8s" repeatCount="indefinite" rotate="auto" begin="2s">
+                  <animateMotion
+                    dur="10s"
+                    repeatCount="indefinite"
+                    rotate="auto"
+                    begin="2s"
+                    keyTimes="0; 0.25; 0.45; 0.65; 0.85; 1"
+                    keyPoints="0; 0.244; 0.345; 0.616; 0.765; 1"
+                    calcMode="linear"
+                  >
                     <mpath href="#droneFlightPath" />
                   </animateMotion>
+                </g>
+
+                {/* CAPTURE label for Zone 1 */}
+                <g opacity="0">
+                  <rect x="55" y="22" width="55" height="14" rx="3"
+                    fill="hsl(187 100% 50% / 0.15)" stroke="hsl(187 100% 50%)" strokeWidth="0.8" />
+                  <text x="82.5" y="32" textAnchor="middle"
+                    fill="hsl(187 100% 50%)" fontSize="8" fontWeight="700"
+                    fontFamily="monospace" letterSpacing="0.5">CAPTURE</text>
+                  <animate attributeName="opacity"
+                    values="0; 0; 1; 1; 0; 0; 0; 0"
+                    keyTimes="0; 0.249; 0.26; 0.44; 0.46; 0.85; 0.99; 1"
+                    dur="10s" begin="2s" repeatCount="indefinite" />
+                </g>
+
+                {/* CAPTURE label for Zone 2 */}
+                <g opacity="0">
+                  <rect x="190" y="92" width="70" height="14" rx="3"
+                    fill="hsl(187 100% 50% / 0.15)" stroke="hsl(187 100% 50%)" strokeWidth="0.8" />
+                  <text x="225" y="102" textAnchor="middle"
+                    fill="hsl(187 100% 50%)" fontSize="8" fontWeight="700"
+                    fontFamily="monospace" letterSpacing="0.5">CAPTURE</text>
+                  <animate attributeName="opacity"
+                    values="0; 0; 1; 1; 0; 0"
+                    keyTimes="0; 0.649; 0.66; 0.84; 0.86; 1"
+                    dur="10s" begin="2s" repeatCount="indefinite" />
                 </g>
               </svg>
             </div>
