@@ -295,6 +295,6 @@ export const translations = {
       rights: "© 2026 NG Consulting. All rights reserved.",
     },
   },
-} as const;
+};
 
 export type Dict = typeof translations.bs;
