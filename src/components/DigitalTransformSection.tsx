@@ -1,28 +1,22 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Layers, BarChart3, Users, Workflow, Search, MessageSquare, Zap, Lock, Bot, BrainCircuit } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 
-const features = [
-  { icon: Workflow, title: "Proces optimizacija", desc: "Analiza i optimizacija poslovnih procesa sa AI-driven uvid i automatizacijom" },
-  { icon: Layers, title: "Sistem integracija", desc: "Besprijekorna integracija postojećih sistema u unified digitalnu platformu" },
-  { icon: BarChart3, title: "Data analitika", desc: "Napredna analitika sa predictive modelima za informirano donošenje odluka" },
-  { icon: Users, title: "Tim transformacija", desc: "Upskilling programa i change management za uspješnu digitalnu tranziciju" },
-  { icon: Bot, title: "AI Agenti", desc: "Inteligentni RAG agenti za precizno razumijevanje i obradu vaših podataka" },
-  { icon: BrainCircuit, title: "AI Transformacija", desc: "Implementacija vještačke inteligencije u sve segmente vašeg poslovanja" },
-  { icon: Search, title: "Inteligentno pretraživanje", desc: "RAG arhitektura za precizno pronalaženje informacija iz dokumenata i baza" },
-  { icon: Lock, title: "Sigurna integracija", desc: "Enterprise-grade sigurnost sa potpunom kontrolom nad vašim podacima" },
-];
-
-const pillars = [
-  { label: "Integracija", value: "98%" },
-  { label: "KPI Fokus", value: "15+" },
-  { label: "AI Modeli", value: "20+" },
-  { label: "Timovi", value: "10+" },
-];
+const icons = [Workflow, Layers, BarChart3, Users, Bot, BrainCircuit, Search, Lock];
 
 const DigitalTransformSection = () => {
+  const { t } = useLang();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const features = t.digital.f.map((f, i) => ({ icon: icons[i], title: f.t, desc: f.d }));
+  const pillars = [
+    { label: t.digital.pillars.integration, value: "98%" },
+    { label: t.digital.pillars.kpi, value: "15+" },
+    { label: t.digital.pillars.aiModels, value: "20+" },
+    { label: t.digital.pillars.teams, value: "10+" },
+  ];
 
   return (
     <section id="digital" className="py-24 relative" ref={ref}>
@@ -35,13 +29,13 @@ const DigitalTransformSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Digitalna & AI Transformacija
+            {t.digital.badge}
           </span>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Kompletna <span className="gradient-text">Digitalna Evolucija</span>
+            {t.digital.title1} <span className="gradient-text">{t.digital.title2}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            End-to-end digitalna i AI transformacija vašeg poslovanja sa mjerljivim rezultatima
+            {t.digital.desc}
           </p>
         </motion.div>
 
@@ -52,7 +46,7 @@ const DigitalTransformSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="bg-card/30 rounded-2xl border border-border p-8 mb-12"
         >
-          <h3 className="font-heading font-semibold text-foreground mb-8 text-center">Transformacioni Rezultati</h3>
+          <h3 className="font-heading font-semibold text-foreground mb-8 text-center">{t.digital.resultsTitle}</h3>
 
           <div className="grid grid-cols-4 gap-6 mb-8">
             {pillars.map((p, i) => (
@@ -71,7 +65,7 @@ const DigitalTransformSection = () => {
 
           {/* Process flow */}
           <div className="flex items-stretch justify-between gap-2">
-            {["Analiza", "Strategija", "Implementacija", "Optimizacija"].map((step, i) => (
+            {t.digital.steps.map((step, i) => (
               <motion.div
                 key={step}
                 initial={{ opacity: 0, scale: 0.8 }}
