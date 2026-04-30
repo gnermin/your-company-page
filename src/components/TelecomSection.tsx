@@ -1,25 +1,22 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Phone, Network, Radio, Eye, Wifi } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 
-const features = [
-  { icon: Radio, title: "Radio mreže", desc: "Konsalting i implementacija LoRa, LoRaWAN, NB-IoT i DMR radio komunikacijskih mreža" },
-  { icon: Network, title: "FTTH Mreže", desc: "Projektovanje i gradnja fiber-to-the-home optičkih mreža za brzi pristup internetu" },
-  { icon: Eye, title: "Nadzor izgradnje", desc: "Stručni nadzor nad izgradnjom telekomunikacijske infrastrukture i optičkih mreža" },
-  { icon: Phone, title: "VoIP Sistemi", desc: "Napredni VoIP sistemi sa kristalno čistim zvukom i niskim latencijama" },
-  { icon: Wifi, title: "Networking", desc: "Dizajn i implementacija skalabilnih mrežnih rješenja za vaše poslovanje" },
-];
-
-const stats = [
-  { label: "Rješenja", value: "5+" },
-  { label: "Uptime", value: "90%" },
-  { label: "Nadzor", value: "50+" },
-  { label: "Lokacija", value: "100+" },
-];
+const icons = [Radio, Network, Eye, Phone, Wifi];
 
 const TelecomSection = () => {
+  const { t } = useLang();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const features = t.telecom.f.map((f, i) => ({ icon: icons[i], title: f.t, desc: f.d }));
+  const stats = [
+    { label: t.telecom.stats.solutions, value: "5+" },
+    { label: t.telecom.stats.uptime, value: "90%" },
+    { label: t.telecom.stats.supervision, value: "50+" },
+    { label: t.telecom.stats.locations, value: "100+" },
+  ];
 
   return (
     <section id="telecom" className="py-24 relative" ref={ref}>
@@ -32,13 +29,13 @@ const TelecomSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            TK Rješenja
+            {t.telecom.badge}
           </span>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Telekomunikacijska <span className="gradient-text">Rješenja</span>
+            {t.telecom.title1} <span className="gradient-text">{t.telecom.title2}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Kompletna telekomunikacijska infrastruktura i usluge za moderno poslovanje
+            {t.telecom.desc}
           </p>
         </motion.div>
 
