@@ -80,33 +80,91 @@ Deno.serve(async (req) => {
       </div>
     `;
 
-    const resendRes = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "NG Consulting <info@gnnvision.com>",
-        to: ["nermin.goran@gmail.com"],
-        reply_to: email,
-        subject: `Nova poruka sa sajta — ${name}`,
-        html,
+    // Confirmation email to the visitor
+    const confirmationHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 32px 24px; background: #ffffff; color: #111827;">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <h1 style="color: #0891b2; margin: 0; font-size: 24px;">NG Consulting</h1>
+        </div>
+        <h2 style="color: #111827; margin: 0 0 16px; font-size: 20px;">Hvala vam na poruci, ${escapeHtml(name)}!</h2>
+        <p style="color: #374151; line-height: 1.6; margin: 0 0 16px;">
+          Vaša poruka je uspješno primljena. Javit ćemo vam se u najkraćem mogućem roku — obično u roku od 24 sata radnim danima.
+        </p>
+        <div style="background: #f9fafb; border-left: 4px solid #0891b2; padding: 16px; border-radius: 4px; margin: 24px 0;">
+          <div style="color: #6b7280; font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Vaša poruka</div>
+          <div style="white-space: pre-wrap; line-height: 1.6; color: #111827;">${escapeHtml(message)}</div>
+        </div>
+        <p style="color: #374151; line-height: 1.6; margin: 0 0 8px;">U međuvremenu, ako imate hitnih pitanja, kontaktirajte nas:</p>
+        <ul style="color: #374151; line-height: 1.8; padding-left: 20px; margin: 0 0 24px;">
+          <li>Email: <a href="mailto:nermin.goran@gmail.com" style="color: #0891b2;">nermin.goran@gmail.com</a></li>
+          <li>Telefon: <a href="tel:+38762225568" style="color: #0891b2;">+387 62 225 568</a></li>
+        </ul>
+        <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
+        <p style="color: #9ca3af; font-size: 12px; line-height: 1.5; margin: 0; text-align: center;">
+          NG Consulting — AI, SaaS i IoT rješenja<br/>
+          Travnik, Bosna i Hercegovina<br/>
+          <a href="https://gnnvision.com" style="color: #0891b2; text-decoration: none;">gnnvision.com</a>
+        </p>
+      </div>
+    `;
+
+    // Send both emails in parallel
+    const [notifyRes, confirmRes] = await Promise.all([
+      fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "NG Consulting <info@gnnvision.com>",
+          to: ["nermin.goran@gmail.com"],
+          reply_to: email,
+          subject: `Nova poruka sa sajta — ${name}`,
+          html,
+        }),
       }),
-    });
+      fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "NG Consulting <info@gnnvision.com>",
+          to: [email],
+          reply_to: "nermin.goran@gmail.com",
+          subject: "Hvala vam na poruci — NG Consulting",
+          html: confirmationHtml,
+        }),
+      }),
+    ]);
 
-    const resendData = await resendRes.json();
+    const notifyData = await notifyRes.json();
+    const confirmData = await confirmRes.json();
 
-    if (!resendRes.ok) {
-      console.error("Resend error:", resendRes.status, resendData);
-      return new Response(JSON.stringify({ error: "Failed to send email", details: resendData }), {
+    if (!notifyRes.ok) {
+      console.error("Notify email error:", notifyRes.status, notifyData);
+    }
+    if (!confirmRes.ok) {
+      console.error("Confirmation email error:", confirmRes.status, confirmData);
+    }
+
+    // If notification to admin failed, return error (most critical)
+    if (!notifyRes.ok) {
+      return new Response(JSON.stringify({ error: "Failed to send notification email", details: notifyData }), {
         status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    console.log("Email sent successfully:", resendData);
-    return new Response(JSON.stringify({ success: true, id: resendData.id }), {
+    console.log("Emails sent — notify:", notifyData.id, "confirm:", confirmData.id);
+    return new Response(JSON.stringify({
+      success: true,
+      notifyId: notifyData.id,
+      confirmId: confirmData.id,
+      confirmSent: confirmRes.ok,
+    }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
