@@ -31,13 +31,23 @@ const ContactSection = () => {
 
     setLoading(true);
     try {
-      const { error } = await supabase.from("contact_messages").insert({
+      const payload = {
         name: form.name.trim().slice(0, 100),
         email: form.email.trim().slice(0, 255),
         company: form.company.trim().slice(0, 100) || null,
         message: form.message.trim().slice(0, 2000),
-      });
+      };
+
+      const { error } = await supabase.from("contact_messages").insert(payload);
       if (error) throw error;
+
+      // Send email notification (non-blocking — message is already saved)
+      supabase.functions
+        .invoke("send-contact-email", { body: payload })
+        .then(({ error: fnError }) => {
+          if (fnError) console.error("Email notification failed:", fnError);
+        });
+
       setSent(true);
       setForm({ name: "", email: "", company: "", message: "" });
       toast({ title: t.contact.okTitle, description: t.contact.okDesc });
