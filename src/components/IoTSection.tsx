@@ -55,7 +55,7 @@ const IoTSection = () => {
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
             {t.iot.title1} <span className="gradient-text">{t.iot.title2}</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="max-w-2xl mx-auto text-cyan-50 text-2xl">
             {t.iot.desc}
           </p>
         </motion.div>
