@@ -22,7 +22,7 @@ const Index = () => {
         className="fixed inset-0 z-0"
         style={{
           background:
-            "linear-gradient(180deg, hsl(var(--background) / 0.08) 0%, hsl(var(--background) / 0.16) 50%, hsl(var(--background) / 0.32) 100%)",
+            "linear-gradient(180deg, hsl(var(--background) / 0.55) 0%, hsl(var(--background) / 0.45) 50%, hsl(var(--background) / 0.70) 100%)",
         }}
         aria-hidden="true"
       />
