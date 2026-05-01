@@ -139,3 +139,17 @@
   position: relative;
   z-index: 1;
 }
+
+/* Light theme: ensure cards are solid white with soft shadow for depth */
+.page-with-bg [class*="bg-card/"],
+.page-with-bg [class*="bg-secondary/"] {
+  background-color: hsl(var(--card)) !important;
+  box-shadow: 0 1px 3px hsl(220 20% 15% / 0.06), 0 4px 12px hsl(220 20% 15% / 0.04);
+}
+
+/* Inputs inside cards keep a subtle gray background */
+.page-with-bg input[class*="bg-secondary/"],
+.page-with-bg textarea[class*="bg-secondary/"] {
+  background-color: hsl(var(--secondary)) !important;
+  box-shadow: none;
+}
