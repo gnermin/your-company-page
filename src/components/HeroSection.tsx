@@ -39,11 +39,11 @@ const HeroSection = () => {
           </motion.div>
 
           <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="text-white">{t.hero.title1}</span>{" "}
-            <span className="gradient-text cyan-glow">{t.hero.title2}</span>
+            <span className="gradient-text cyan-glow">{t.hero.title1}</span>{" "}
+            <span className="text-foreground">{t.hero.title2}</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-200/90 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
             {t.hero.desc}
           </p>
 

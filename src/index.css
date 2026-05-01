@@ -6,54 +6,47 @@
 
 @layer base {
   :root {
-    /* Enterprise palette — navy base, white cards, smireni teal accent */
-    /* navy #0B1F33, slate #1E3A4C, card #F8FAFC, border #D8E1EA,
-       text #102033, muted #64748B, accent #0891B2, success #22A06B, warning #D97706 */
-    --background: 210 210 210; /* placeholder, overridden below */
-    --background: 210 61% 12%;        /* #0B1F33 navy */
-    --foreground: 210 17% 96%;        /* near-white on navy */
+    --background: 220 20% 10%;
+    --foreground: 210 40% 95%;
 
-    --card: 210 40% 98%;              /* #F8FAFC */
-    --card-foreground: 215 53% 13%;   /* #102033 */
+    --card: 220 18% 14%;
+    --card-foreground: 210 40% 95%;
 
-    --popover: 210 40% 98%;
-    --popover-foreground: 215 53% 13%;
+    --popover: 220 18% 14%;
+    --popover-foreground: 210 40% 95%;
 
-    --primary: 191 91% 36%;           /* #0891B2 teal */
-    --primary-foreground: 210 40% 98%;
+    --primary: 187 100% 50%;
+    --primary-foreground: 220 20% 6%;
 
-    --secondary: 205 43% 21%;         /* #1E3A4C slate */
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 16% 18%;
+    --secondary-foreground: 210 40% 95%;
 
-    --muted: 210 30% 92%;
-    --muted-foreground: 215 19% 47%;  /* #64748B */
+    --muted: 220 14% 20%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 191 91% 36%;            /* #0891B2 */
-    --accent-foreground: 210 40% 98%;
+    --accent: 187 100% 50%;
+    --accent-foreground: 220 20% 6%;
 
-    --destructive: 0 73% 51%;         /* #DC2626 */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 32% 88%;            /* #D8E1EA */
-    --input: 210 32% 88%;
-    --ring: 191 91% 36%;
+    --border: 220 14% 22%;
+    --input: 220 14% 22%;
+    --ring: 187 100% 50%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 210 61% 12%;
-    --sidebar-foreground: 210 17% 96%;
-    --sidebar-primary: 191 91% 36%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 205 43% 21%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 205 35% 25%;
-    --sidebar-ring: 191 91% 36%;
+    --sidebar-background: 220 18% 12%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 187 100% 50%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 14% 20%;
+    --sidebar-accent-foreground: 210 40% 95%;
+    --sidebar-border: 220 14% 22%;
+    --sidebar-ring: 187 100% 50%;
 
-    --cyan-glow: 191 91% 36%;
-    --cyan-muted: 199 89% 60%;        /* #38BDF8 secondary accent */
-
-    --success: 154 64% 38%;           /* #22A06B */
-    --warning: 28 90% 44%;            /* #D97706 */
+    --cyan-glow: 187 100% 50%;
+    --cyan-muted: 187 60% 40%;
   }
 }
 
@@ -65,8 +58,6 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -74,55 +65,41 @@
   }
 }
 
-/* Globalno povećanje tipografije za bolju čitljivost */
-@layer utilities {
-  .page-with-bg .text-xs   { font-size: 0.875rem; line-height: 1.45; }   /* 14px */
-  .page-with-bg .text-sm   { font-size: 1rem;     line-height: 1.55; }   /* 16px */
-  .page-with-bg .text-base { font-size: 1.0625rem; line-height: 1.65; }  /* 17px */
-  .page-with-bg .text-lg   { font-size: 1.1875rem; line-height: 1.65; }  /* 19px */
-  .page-with-bg .text-xl   { font-size: 1.375rem; line-height: 1.55; }   /* 22px */
-  .page-with-bg .text-2xl  { font-size: 1.625rem; line-height: 1.45; }   /* 26px */
-  .page-with-bg .text-3xl  { font-size: 2rem;     line-height: 1.35; }   /* 32px */
-  .page-with-bg .text-4xl  { font-size: 2.5rem;   line-height: 1.25; }   /* 40px */
-  .page-with-bg .text-5xl  { font-size: 3.25rem;  line-height: 1.15; }   /* 52px */
-  .page-with-bg .text-7xl  { font-size: 4.75rem;  line-height: 1.1; }    /* 76px */
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(205 43% 18%);
+  background: hsl(220 18% 12%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(191 91% 36% / 0.6);
+  background: hsl(240 12% 20%);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(191 91% 36%);
+  background: hsl(187 100% 50% / 0.3);
 }
 
 /* Glow effects */
 .cyan-glow {
-  text-shadow: 0 0 18px hsl(191 91% 36% / 0.25), 0 0 36px hsl(191 91% 36% / 0.1);
+  text-shadow: 0 0 20px hsl(187 100% 50% / 0.5), 0 0 40px hsl(187 100% 50% / 0.2);
 }
 
 .card-glow:hover {
-  box-shadow: 0 18px 40px hsl(210 61% 8% / 0.25), 0 0 32px hsl(191 91% 36% / 0.12);
+  box-shadow: 0 0 30px hsl(187 100% 50% / 0.1), 0 0 60px hsl(187 100% 50% / 0.05);
 }
 
 /* Grid pattern background */
 .grid-pattern {
   background-image: 
-    linear-gradient(hsl(210 40% 98% / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(210 40% 98% / 0.06) 1px, transparent 1px);
+    linear-gradient(hsl(240 12% 16% / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(240 12% 16% / 0.3) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, hsl(191 91% 36%), hsl(199 89% 60%));
+  background: linear-gradient(135deg, hsl(187 100% 50%), hsl(200 100% 60%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -140,7 +117,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.85;
+  opacity: 0.35;
   z-index: 0;
   pointer-events: none;
 }
@@ -149,10 +126,10 @@
   position: fixed;
   inset: 0;
   background: linear-gradient(
-    180deg,
-    rgba(8, 24, 40, 0.72) 0%,
-    rgba(11, 31, 51, 0.68) 50%,
-    rgba(11, 31, 51, 0.78) 100%
+    to bottom,
+    hsl(220 20% 10% / 0.65),
+    hsl(220 20% 10% / 0.8),
+    hsl(220 20% 10% / 0.95)
   );
   z-index: 0;
   pointer-events: none;
@@ -160,74 +137,4 @@
 .page-with-bg > * {
   position: relative;
   z-index: 1;
-}
-
-/* Cards: premium solid near-white with cool border and deep navy shadow */
-.page-with-bg [class*="bg-card/"],
-.page-with-bg [class*="bg-secondary/"] {
-  background-color: #F8FAFC !important;
-  border: 1px solid #D8E1EA !important;
-  color: #102033;
-  box-shadow: 0 18px 40px rgba(8, 24, 40, 0.35);
-  border-radius: 18px;
-}
-
-/* Text inside cards uses dark navy / muted slate */
-.page-with-bg [class*="bg-card/"] .text-foreground,
-.page-with-bg [class*="bg-secondary/"] .text-foreground {
-  color: #102033 !important;
-}
-.page-with-bg [class*="bg-card/"] .text-muted-foreground,
-.page-with-bg [class*="bg-secondary/"] .text-muted-foreground {
-  color: #64748B !important;
-}
-
-/* Icon tiles inside cards (bg-primary/10) become soft cyan tint */
-.page-with-bg [class*="bg-card/"] [class*="bg-primary/1"],
-.page-with-bg [class*="bg-secondary/"] [class*="bg-primary/1"] {
-  background-color: #E6F7FB !important;
-}
-
-/* "Transformacioni Rezultati" panel — sivlja varijanta umjesto čisto bijele */
-.page-with-bg .results-panel {
-  background-color: #E2E8F0 !important;
-  border-color: #CBD5E1 !important;
-  color: #102033;
-  box-shadow: 0 18px 40px rgba(8, 24, 40, 0.28);
-}
-.page-with-bg .results-panel h3,
-.page-with-bg .results-panel .text-foreground {
-  color: #102033 !important;
-}
-.page-with-bg .results-panel .text-muted-foreground {
-  color: #64748B !important;
-}
-.page-with-bg .results-step {
-  background-color: #CBD5E1 !important;
-  border-color: #B6C2D2 !important;
-}
-
-/* Inputs inside cards keep a subtle cool-gray background */
-.page-with-bg input[class*="bg-secondary/"],
-.page-with-bg textarea[class*="bg-secondary/"] {
-  background-color: #EEF2F7 !important;
-  border: 1px solid #D8E1EA !important;
-  color: #102033 !important;
-  box-shadow: none;
-}
-
-/* Section headings & body text on the navy page background should be light.
-   Cards override this back to dark navy via the rules above. */
-.page-with-bg h1,
-.page-with-bg h2,
-.page-with-bg h3 {
-  color: #F8FAFC;
-}
-.page-with-bg [class*="bg-card/"] h1,
-.page-with-bg [class*="bg-card/"] h2,
-.page-with-bg [class*="bg-card/"] h3,
-.page-with-bg [class*="bg-secondary/"] h1,
-.page-with-bg [class*="bg-secondary/"] h2,
-.page-with-bg [class*="bg-secondary/"] h3 {
-  color: #102033;
 }
