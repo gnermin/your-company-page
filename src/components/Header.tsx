@@ -40,9 +40,9 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         <a href="#hero" onClick={() => scrollTo("#hero")} className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-heading font-bold text-sm">NG</span>
+            <span className="text-primary-foreground font-heading font-bold text-xl">NG</span>
           </div>
-          <span className="font-heading font-bold text-lg text-foreground">
+          <span className="font-heading font-bold text-foreground text-xl">
             NG <span className="text-primary">Consulting</span>
           </span>
         </a>
@@ -53,7 +53,7 @@ const Header = () => {
             <button
               key={link.href}
               onClick={() => scrollTo(link.href)}
-              className="px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors rounded-md"
+              className="px-3 py-2 text-muted-foreground hover:text-primary transition-colors rounded-md text-base"
             >
               {link.label}
             </button>
@@ -91,7 +91,7 @@ const Header = () => {
               <button
                 key={link.href}
                 onClick={() => scrollTo(link.href)}
-                className="px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                className="px-3 py-2 text-muted-foreground hover:text-primary transition-colors text-left text-base"
               >
                 {link.label}
               </button>
