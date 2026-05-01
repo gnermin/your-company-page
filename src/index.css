@@ -180,3 +180,19 @@
   color: #102033 !important;
   box-shadow: none;
 }
+
+/* Section headings & body text on the navy page background should be light.
+   Cards override this back to dark navy via the rules above. */
+.page-with-bg h1,
+.page-with-bg h2,
+.page-with-bg h3 {
+  color: #F8FAFC;
+}
+.page-with-bg [class*="bg-card/"] h1,
+.page-with-bg [class*="bg-card/"] h2,
+.page-with-bg [class*="bg-card/"] h3,
+.page-with-bg [class*="bg-secondary/"] h1,
+.page-with-bg [class*="bg-secondary/"] h2,
+.page-with-bg [class*="bg-secondary/"] h3 {
+  color: #102033;
+}
