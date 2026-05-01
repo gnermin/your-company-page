@@ -118,7 +118,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.18;
+  opacity: 0.55;
   z-index: 0;
   pointer-events: none;
 }
@@ -128,9 +128,9 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    hsl(210 16% 93% / 0.7),
-    hsl(210 16% 93% / 0.85),
-    hsl(210 16% 93% / 0.95)
+    hsl(210 60% 18% / 0.55),
+    hsl(210 55% 22% / 0.45),
+    hsl(210 50% 25% / 0.55)
   );
   z-index: 0;
   pointer-events: none;
