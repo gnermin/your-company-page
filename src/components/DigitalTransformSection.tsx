@@ -44,7 +44,7 @@ const DigitalTransformSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-card/30 rounded-2xl border border-border p-8 mb-12"
+          className="results-panel rounded-2xl border p-8 mb-12"
         >
           <h3 className="font-heading font-semibold text-foreground mb-8 text-center">{t.digital.resultsTitle}</h3>
 
@@ -73,7 +73,7 @@ const DigitalTransformSection = () => {
                 transition={{ delay: 0.8 + i * 0.15 }}
                 className="flex-1"
               >
-                <div className="bg-secondary/50 border border-border rounded-lg p-3 text-center h-full flex flex-col items-center justify-center">
+                <div className="results-step border rounded-lg p-3 text-center h-full flex flex-col items-center justify-center">
                   <div className="w-6 h-6 rounded-full bg-primary/20 border border-primary/30 mx-auto mb-2 flex items-center justify-center">
                     <span className="text-xs text-primary font-bold">{i + 1}</span>
                   </div>
