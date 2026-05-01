@@ -172,6 +172,25 @@
   background-color: #E6F7FB !important;
 }
 
+/* "Transformacioni Rezultati" panel — sivlja varijanta umjesto čisto bijele */
+.page-with-bg .results-panel {
+  background-color: #E2E8F0 !important;
+  border-color: #CBD5E1 !important;
+  color: #102033;
+  box-shadow: 0 18px 40px rgba(8, 24, 40, 0.28);
+}
+.page-with-bg .results-panel h3,
+.page-with-bg .results-panel .text-foreground {
+  color: #102033 !important;
+}
+.page-with-bg .results-panel .text-muted-foreground {
+  color: #64748B !important;
+}
+.page-with-bg .results-step {
+  background-color: #CBD5E1 !important;
+  border-color: #B6C2D2 !important;
+}
+
 /* Inputs inside cards keep a subtle cool-gray background */
 .page-with-bg input[class*="bg-secondary/"],
 .page-with-bg textarea[class*="bg-secondary/"] {
