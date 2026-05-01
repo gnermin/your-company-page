@@ -7,32 +7,19 @@ import DroneSection from "@/components/DroneSection";
 import AIAgentsSection from "@/components/AIAgentsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import pageBg from "@/assets/page-bg.jpg";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative">
-      {/* Fixed background image with dark overlay for readability */}
-      <div
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-30"
-        style={{ backgroundImage: `url(${pageBg})` }}
-        aria-hidden="true"
-      />
-      <div
-        className="fixed inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/85 to-background"
-        aria-hidden="true"
-      />
-      <div className="relative z-0">
-        <Header />
-        <HeroSection />
-        <DigitalTransformSection />
-        <TelecomSection />
-        <IoTSection />
-        <DroneSection />
-        <AIAgentsSection />
-        <ContactSection />
-        <Footer />
-      </div>
+    <div className="min-h-screen page-with-bg">
+      <Header />
+      <HeroSection />
+      <DigitalTransformSection />
+      <TelecomSection />
+      <IoTSection />
+      <DroneSection />
+      <AIAgentsSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };

@@ -104,3 +104,37 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Page background image with overlay */
+.page-with-bg {
+  position: relative;
+}
+.page-with-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("@/assets/page-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  z-index: 0;
+  pointer-events: none;
+}
+.page-with-bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    hsl(220 20% 10% / 0.65),
+    hsl(220 20% 10% / 0.8),
+    hsl(220 20% 10% / 0.95)
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+.page-with-bg > * {
+  position: relative;
+  z-index: 1;
+}
