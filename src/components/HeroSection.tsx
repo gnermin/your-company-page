@@ -43,7 +43,7 @@ const HeroSection = () => {
             <span className="text-foreground">{t.hero.title2}</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg max-w-2xl mx-auto mb-10 leading-relaxed text-cyan-50 md:text-2xl border-2">
             {t.hero.desc}
           </p>
 
