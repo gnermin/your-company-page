@@ -2,8 +2,7 @@ import { useLang } from "@/i18n/LanguageContext";
 
 const LanguageToggle = ({ compact = false }: { compact?: boolean }) => {
   const { lang, setLang } = useLang();
-  const base =
-    "px-2 py-1 text-xs font-semibold rounded-md transition-colors";
+  const base = "px-2 py-1 font-semibold rounded-md transition-colors text-base";
   return (
     <div
       className={`inline-flex items-center gap-0.5 rounded-lg border border-border bg-secondary/50 p-0.5 ${
