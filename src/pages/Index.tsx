@@ -11,22 +11,22 @@ import pageBg from "@/assets/page-bg.jpg";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="relative min-h-screen overflow-x-hidden">
       {/* Fixed background image with dark overlay for readability */}
       <div
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${pageBg})` }}
         aria-hidden="true"
       />
       <div
-        className="fixed inset-0 -z-10"
+        className="fixed inset-0 z-0"
         style={{
           background:
-            "linear-gradient(180deg, hsl(var(--background) / 0.20) 0%, hsl(var(--background) / 0.30) 50%, hsl(var(--background) / 0.50) 100%)",
+            "linear-gradient(180deg, hsl(var(--background) / 0.08) 0%, hsl(var(--background) / 0.16) 50%, hsl(var(--background) / 0.32) 100%)",
         }}
         aria-hidden="true"
       />
-      <div className="relative z-0">
+      <div className="relative z-10">
         <Header />
         <HeroSection />
         <DigitalTransformSection />
