@@ -91,7 +91,7 @@ const Header = () => {
               <button
                 key={link.href}
                 onClick={() => scrollTo(link.href)}
-                className="px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                className="px-3 py-2 text-muted-foreground hover:text-primary transition-colors text-left text-base"
               >
                 {link.label}
               </button>
