@@ -65,11 +65,27 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
   }
+}
+
+/* Globalno povećanje tipografije za bolju čitljivost */
+@layer utilities {
+  .page-with-bg .text-xs   { font-size: 0.875rem; line-height: 1.45; }   /* 14px */
+  .page-with-bg .text-sm   { font-size: 1rem;     line-height: 1.55; }   /* 16px */
+  .page-with-bg .text-base { font-size: 1.0625rem; line-height: 1.65; }  /* 17px */
+  .page-with-bg .text-lg   { font-size: 1.1875rem; line-height: 1.65; }  /* 19px */
+  .page-with-bg .text-xl   { font-size: 1.375rem; line-height: 1.55; }   /* 22px */
+  .page-with-bg .text-2xl  { font-size: 1.625rem; line-height: 1.45; }   /* 26px */
+  .page-with-bg .text-3xl  { font-size: 2rem;     line-height: 1.35; }   /* 32px */
+  .page-with-bg .text-4xl  { font-size: 2.5rem;   line-height: 1.25; }   /* 40px */
+  .page-with-bg .text-5xl  { font-size: 3.25rem;  line-height: 1.15; }   /* 52px */
+  .page-with-bg .text-7xl  { font-size: 4.75rem;  line-height: 1.1; }    /* 76px */
 }
 
 /* Custom scrollbar */
