@@ -33,7 +33,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-6"
+            className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary mb-6 text-4xl font-semibold"
           >
             {t.hero.badge}
           </motion.div>
