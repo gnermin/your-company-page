@@ -14,12 +14,12 @@ const Index = () => {
     <div className="min-h-screen bg-background relative">
       {/* Fixed background image with dark overlay for readability */}
       <div
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-30"
         style={{ backgroundImage: `url(${pageBg})` }}
         aria-hidden="true"
       />
       <div
-        className="fixed inset-0 -z-10 bg-background/90"
+        className="fixed inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/85 to-background"
         aria-hidden="true"
       />
       <div className="relative z-0">
